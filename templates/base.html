@@ -1,0 +1,15 @@
+<!--En esta pagina se crearan los estilos base de nuestro proyecto-->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <!--Creando el head de nuestra aplicacion -->
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!--Creando el body de nuestra aplicacion-->
+    {% block body %}{% endblock %}
+</body>
+</html>

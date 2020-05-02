@@ -1,0 +1,39 @@
+<!--Llamando los bloques de nuestro archivo base.html-->
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Administrador de Tareas</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Maestro de Tareas</h1>
+    {% if tasks|length < 1 %}
+    <h4>No hay tareas ¡Crea una a continuación!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Tarea</th>
+            <th>Agregar</th>
+            <th>Acciones</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.content }}</td>
+            <td>{{ task.data_create.date() }}</td>
+            <td>
+                <a href="/delete/{{task.id}}">Eliminar</a>
+                <br>
+                <a href="/update/{{task.id}}">Actualizar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+      {% endif %}
+    <br>
+    <form action="/" method="POST">
+           <input type="text" name="content" id="content">
+           <input type="submit" value="Agregar Tarea">
+    </form>
+</div>
+{% endblock %}
